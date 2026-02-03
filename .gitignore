@@ -1,0 +1,6 @@
+.ansible
+.vscode
+*.code-workspace
+*_key
+*.pdf
+
