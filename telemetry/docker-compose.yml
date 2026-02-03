@@ -4,6 +4,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
+      - ./data:/etc/data
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
     command:

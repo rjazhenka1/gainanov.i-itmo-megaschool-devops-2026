@@ -8,16 +8,6 @@
 
 2. При необходимости использования своих зеркал Docker необходимо настроить их в `docker/daemon.json`. По умолчанию используются зеркала от Google.
 
-3. Установить коллекции для телеметрии:
-```bash
-ansible-galaxy collection install community.general
-ansible-galaxy collection install grafana.grafana
-```
-
-4. Установить docker-compose на хост, который будет собирать телеметрию. 
-
-   В папке `telemetry` находятся `docker-compose.yml` для сервисов телеметрии. Запустить сервисы телеметрии на хосте для телеметрии с использованием `docker compose up -d`.
-
 ### Запуск на хосте (target nodes == control node)
 
 1. Установить Ansible на хосте.
@@ -70,3 +60,16 @@ ansible-playbook -i hosts.ini -K megaolymp-playbook.yml
 
 ### Мониторинг
 
+Хосты разделены на 2 группы - `deployment` и `monitoring`. На первых выполняется полезная нагрузка, на вторых запущены сервисы мониторинга. Настроен auto discovery.
+
+#### Проверка работоспособности
+
+3. Открыть в браузере Grafana созданных дашбордов и метрик.
+
+![3](images/3.png)
+
+4. Вывести последние 20 строк логов Ansible-выполнения и docker-compose в текстовом формате.
+
+![4](images/4.png)
+
+![5](images/5.png)
